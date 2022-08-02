@@ -69,9 +69,13 @@ rooms_test.on('connection', async (client) => {
 
     client.on('disconnect', () => {
         if(client.handshake.query.type == 'User'){
-            test_clt.splice(test_clt.indexOf(client), 1);
-        } else {
-            test_admin.splice(test_admin.indexOf(client), 1);
+            if(test_clt.includes(client)){
+                test_clt.splice(test_clt.indexOf(client), 1);
+            }
+        } else if (client.handshake.query.type == 'Admin'){
+            if(test_admin.includes(client)){
+                test_admin.splice(test_admin.indexOf(client), 1);
+            }
         }
         console.log(test_clt);
     })
