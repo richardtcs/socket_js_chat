@@ -116,7 +116,7 @@ chat.on('connection', (client) => {
             name: client.handshake.query.name,
             msg: msg,
         });
-        log(`${client.handshake.query.name}: msg`);
+        console.log(`${client.handshake.query.name}: msg`);
     });
 
     client.on('img', img => {
@@ -133,7 +133,7 @@ chat.on('connection', (client) => {
             name: client.handshake.query.name,
             img: img,
         });
-        log(`${client.handshake.query.name}: Imagen`);
+        console.log(`${client.handshake.query.name}: Imagen`);
     });
 
     client.on('audio', audio => {
@@ -141,7 +141,7 @@ chat.on('connection', (client) => {
             name: client.handshake.query.name,
             audio: audio,
         });
-        log(`${client.handshake.query.name}: Audio`);
+        console.log(`${client.handshake.query.name}: Audio`);
     })
 
     client.on('disconnect', () => {
