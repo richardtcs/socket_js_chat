@@ -114,7 +114,7 @@ chat.on('connection', (client) => {
         // });
         client.to('chat').emit("message", {
             name: client.handshake.query.name,
-            msg: msg
+            msg: msg,
         });
     });
 
@@ -130,8 +130,15 @@ chat.on('connection', (client) => {
         // });
         client.to('chat').emit('img', {
             name: client.handshake.query.name,
-            img: img
+            img: img,
         });
+    });
+
+    client.on('audio', audio => {
+        client.to('chat').emit('audio', {
+            name: client.handshake.query.name,
+            audio: audio,
+        })
     })
 
     client.on('disconnect', () => {
