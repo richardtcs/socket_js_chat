@@ -116,7 +116,7 @@ chat.on('connection', (client) => {
             name: client.handshake.query.name,
             msg: msg,
         });
-        console.log(`${client.handshake.query.name}: msg`);
+        console.log(`${client.handshake.query.name}: ${msg}`);
     });
 
     client.on('img', img => {
